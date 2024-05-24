@@ -27,7 +27,7 @@ const projectsData: ProjectsData = {
 
       \nCelebrate someone special with a collage of messages and photos from their friends and family, with us.
       All cards free for a limited time.`,
-      imgSrc: '/static/images/time-machine.jpg',
+      imgSrc: '/static/images/mortal-cover-photo.png',
       href: 'https://www.celebratethismortal.com',
     },
   ],
