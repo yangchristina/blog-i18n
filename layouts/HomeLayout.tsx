@@ -14,16 +14,18 @@ interface Post {
   tags: string[]
   language: string
   draft?: boolean
+  featured?: boolean
 }
 
 interface HomeProps {
   posts: Post[]
   params: { locale: LocaleTypes }
+  hideFeatured?: boolean
 }
 
 const MAX_DISPLAY = 5
 
-export default async function HomeLayout({ posts, params: { locale } }: HomeProps) {
+export default async function HomeLayout({ posts, params: { locale }, hideFeatured = false }: HomeProps) {
   const { t } = await createTranslation(locale, 'home')
   return (
     <>
@@ -37,7 +39,7 @@ export default async function HomeLayout({ posts, params: { locale } }: HomeProp
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && t('noposts')}
           {posts
-            .filter((p) => p.language === locale)
+            .filter((p) => p.language === locale && (!hideFeatured || !p.featured))
             .slice(0, MAX_DISPLAY)
             .map((post) => {
               const { slug, date, title, summary, tags, language } = post

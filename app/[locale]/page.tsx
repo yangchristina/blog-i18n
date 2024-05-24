@@ -16,7 +16,7 @@ export default async function Page({ params: { locale } }: HomeProps) {
       {posts.filter((post) => post.language === locale).some((post) => post.featured) && (
         <FeaturedLayout posts={posts} params={{ locale }} />
       )}
-      <HomeLayout posts={posts} params={{ locale: locale }} />
+      <HomeLayout hideFeatured posts={posts} params={{ locale: locale }} />
     </>
   )
 }
