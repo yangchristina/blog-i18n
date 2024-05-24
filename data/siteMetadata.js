@@ -1,7 +1,7 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
   title: 'Next.js i18n Starter Blog',
-  author: 'Christina Yang',
+  authors: ['ychris'],
   headerTitle: 'PlandaBlog',
   description: 'A blog created with Next.js, i18n and Tailwind.css',
   language: 'en',

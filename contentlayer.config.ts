@@ -159,6 +159,11 @@ export const Blog = defineDocumentType(() => ({
   computedFields: {
     ...computedFields,
 
+    // localeid: {
+    //   type: 'string',
+    //   resolve: (doc) => doc._raw.sourceFileName,
+    // },
+
     structuredData: {
       type: 'json',
       resolve: (doc) => ({
@@ -182,7 +187,7 @@ export const Authors = defineDocumentType(() => ({
   fields: {
     name: { type: 'string', required: true },
     language: { type: 'string', default: 'en' },
-    default: {type: 'boolean'},
+    default: { type: 'boolean' },
     avatar: { type: 'string' },
     occupation: { type: 'string' },
     company: { type: 'string' },
