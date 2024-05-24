@@ -27,7 +27,8 @@ import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 import siteMetadata from './data/siteMetadata'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
-import { fallbackLng, secondLng } from './app/[locale]/i18n/locales'
+import { fallbackLng } from './app/[locale]/i18n/locales'
+import { locales } from './app/[locale]/i18n/settings'
 
 const root = process.cwd()
 const isProduction = process.env.NODE_ENV === 'production'
@@ -62,13 +63,22 @@ const computedFields: ComputedFields = {
   toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) },
 }
 
+const getFormattedLng = (language: string) => {
+  for (const locale of locales) {
+    if (locale === language) {
+      return locale
+    }
+  }
+  return fallbackLng
+}
+
 async function generateSlugMap(allBlogs) {
   const slugMap = {}
 
   // Process each blog post
   allBlogs.forEach((blog) => {
     const { localeid, language, slug } = blog
-    const formattedLng = language === fallbackLng ? fallbackLng : secondLng
+    const formattedLng = getFormattedLng(language)
 
     if (!slugMap[localeid]) {
       slugMap[localeid] = {}
@@ -89,7 +99,7 @@ async function generateSlugMap(allBlogs) {
 function createTagCount(allBlogs) {
   const tagCount = {
     [fallbackLng]: {},
-    [secondLng]: {},
+    // [secondLng]: {},
   }
 
   allBlogs.forEach((file) => {
@@ -98,9 +108,10 @@ function createTagCount(allBlogs) {
         const formattedTag = slug(tag)
         if (file.language === fallbackLng) {
           tagCount[fallbackLng][formattedTag] = (tagCount[fallbackLng][formattedTag] || 0) + 1
-        } else if (file.language === secondLng) {
-          tagCount[secondLng][formattedTag] = (tagCount[secondLng][formattedTag] || 0) + 1
         }
+        // else if (file.language === secondLng) {
+        //   tagCount[secondLng][formattedTag] = (tagCount[secondLng][formattedTag] || 0) + 1
+        // }
       })
     }
   })
