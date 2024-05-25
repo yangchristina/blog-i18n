@@ -2,7 +2,7 @@
 const siteMetadata = {
   title: 'Next.js i18n Starter Blog',
   authors: ['ychris'],
-  headerTitle: 'PlandaBlog',
+  headerTitle: 'Planda+Mortals Blog',
   description: "A blog for Planda, Celebrate This Mortal, and Christina's coding journey",
   language: 'en',
   theme: 'system', // system, dark or light

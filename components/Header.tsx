@@ -3,7 +3,7 @@
 import { useParams, usePathname } from 'next/navigation'
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
-import Logo from '@/data/logo.svg'
+// import Logo from '@/data/logo.svg'
 import Link from './Link'
 import AuthorsMenu from './AuthorsMenu'
 import MobileNav from './MobileNav'
@@ -12,6 +12,7 @@ import LangSwitch from './LangSwitch'
 import SearchButton from './search/SearchButton'
 import { useTranslation } from 'app/[locale]/i18n/client'
 import type { LocaleTypes } from 'app/[locale]/i18n/settings'
+import Image from 'next/image'
 
 const Header = () => {
   const locale = useParams()?.locale as LocaleTypes
@@ -25,7 +26,9 @@ const Header = () => {
           <Link href={`/${locale}/`} aria-label={siteMetadata.headerTitle}>
             <div className="flex items-center justify-between">
               <div className="mr-3">
-                <Logo />
+                {/* <Logo /> */}
+                {/* width="53.87" height="43.61" */}
+                <Image src={'/static/images/logo.png'} alt="logo" width={56} height={47} />
               </div>
               {typeof siteMetadata.headerTitle === 'string' ? (
                 <div className="hidden h-6 text-2xl font-semibold sm:block">
