@@ -14,6 +14,7 @@ import { Metadata } from 'next'
 import { dir } from 'i18next'
 import { LocaleTypes, locales } from './i18n/settings'
 import TwSizeIndicator from '@/components/helper/TwSizeIndicator'
+import Script from 'next/script'
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
@@ -105,6 +106,7 @@ export default function RootLayout({
           </SectionContainer>
         </ThemeProvider>
       </body>
+      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
     </html>
   )
 }

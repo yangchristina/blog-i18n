@@ -7,7 +7,7 @@ const siteMetadata = {
   language: 'en',
   theme: 'system', // system, dark or light
   siteUrl: 'https://blog.planda.ca',
-  siteRepo: 'https://github.com/PxlSyl/tailwind-nextjs-starter-blog-i18n',
+  siteRepo: 'https://github.com/yangchristina/blog-i18n',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
   // mastodon: 'https://mastodon.social/@mastodonuser',
@@ -33,7 +33,7 @@ const siteMetadata = {
     // plausibleAnalytics: {
     //   plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
     // },
-    // simpleAnalytics: {},
+    simpleAnalytics: {},
     // posthogAnalytics: {
     //   posthogProjectApiKey: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
     // },
@@ -41,11 +41,11 @@ const siteMetadata = {
     //   googleAnalyticsId: '', // e.g. G-XXXXXXX
     // },
   },
-  newsletter: {
-    // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus
-    // Please add your .env file and modify it according to your selection
-    provider: 'buttondown',
-  },
+  // newsletter: {
+  //   // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus
+  //   // Please add your .env file and modify it according to your selection
+  //   provider: 'buttondown',
+  // },
   iscomments: false,
   comments: {
     // If you want to use an analytics provider you have to add it to the

@@ -14,7 +14,10 @@ export default async function Page({ params: { locale } }: HomeProps) {
   const posts = allCoreContent(sortedPosts)
   return (
     <>
-      <div>This is a joint blog for <Link className='italic' href='https://planda.ca' target='_blank'>Planda.ca</Link> and <Link className='italic' href='https://celebratethismortal.com' target='_blank'>CelebrateThisMortal.com</Link></div>
+      <div>
+        This is a joint blog for <Link className='italic' href='https://planda.ca' target='_blank'>Planda.ca</Link>, <Link className='italic' href='https://celebratethismortal.com' target='_blank'>CelebrateThisMortal.com</Link>, and Christina's random coding thoughts.
+
+      </div>
       {posts.filter((post) => post.language === locale).some((post) => post.featured) && (
         <FeaturedLayout posts={posts} params={{ locale }} />
       )}
