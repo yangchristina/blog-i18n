@@ -107,7 +107,6 @@ export default function RootLayout({
           </SectionContainer>
         </ThemeProvider>
       </body>
-      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
     </html>
   )
 }
