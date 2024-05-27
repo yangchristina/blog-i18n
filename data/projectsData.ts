@@ -30,6 +30,19 @@ const projectsData: ProjectsData = {
       imgSrc: '/static/images/mortal-cover-photo.png',
       href: 'https://www.celebratethismortal.com',
     },
+    {
+      title: 'Exam Study Planner',
+      description: `Simple util to keep track of exams and study progress.`,
+      imgSrc: '/static/images/exam-planner.png',
+      href: 'https://exam-planner.vercel.app/',
+    },
+    {
+      title: 'Lord of the Lakes',
+      description: `2D fishing game, RPG minigame with a turn-based battle mechanic. Developed in a 6 person team, won student-choice award out of 19 games.
+      `,
+      imgSrc: '/static/images/lord-of-the-lakes.png',
+      href: 'https://ellynchan.itch.io/lord-of-the-lakes',
+    }
   ],
 
   // fr: [
