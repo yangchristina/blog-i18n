@@ -50,6 +50,13 @@ const projectsData: ProjectsData = {
       href: 'https://ellynchan.itch.io/lord-of-the-lakes',
     },
     {
+      title: 'event-cron-parser',
+      description: `Expanded @aws-cron-parser to support AWS rate expressions, durations, date ranges, conversions between local and UTC times, and more.
+      `,
+      imgSrc: '/static/images/npm.png',
+      href: 'https://github.com/yangchristina/event-cron-parser',
+    },
+    {
       title: 'Stock Watch',
       description: `Scans NYSE and NASDAQ periodically for over 75 specific signals in market data.
       Automated bots use Interactive Brokers to paper trade, custom exit strategies and backtesting. (currently down)
