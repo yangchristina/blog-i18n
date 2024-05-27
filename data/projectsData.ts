@@ -31,10 +31,16 @@ const projectsData: ProjectsData = {
       href: 'https://www.celebratethismortal.com',
     },
     {
+      title: 'UBC Schedule Optimizer',
+      description: `Generates optimal course schedules for based on walking times, professor ratings, gaps between classes, and more. Note: Not yet updated for Workday (2024W)`,
+      imgSrc: '/static/images/ubc-schedule-opt.png',
+      href: 'https://ubc-schedule-optimizer.herokuapp.com/',
+    },
+    {
       title: 'Exam Study Planner',
       description: `Simple util to keep track of exams and study progress.`,
       imgSrc: '/static/images/exam-planner.png',
-      href: 'https://exam-planner.vercel.app/',
+      href: 'https://github.com/yangchristina/exam-planner',
     },
     {
       title: 'Lord of the Lakes',
@@ -42,7 +48,22 @@ const projectsData: ProjectsData = {
       `,
       imgSrc: '/static/images/lord-of-the-lakes.png',
       href: 'https://ellynchan.itch.io/lord-of-the-lakes',
-    }
+    },
+    {
+      title: 'Stock Watch',
+      description: `Scans NYSE and NASDAQ periodically for over 75 specific signals in market data.
+      Automated bots use Interactive Brokers to paper trade, custom exit strategies and backtesting. (currently down)
+      `,
+      imgSrc: '/static/images/stock-watch-graph.png',
+      href: 'https://github.com/yangchristina/stocks',
+    },
+    {
+      title: 'Productive hours tracker',
+      description: `Track your energy, focus, and motivations levels throughout the day. Java GUI using JSON storage.
+      `,
+      imgSrc: '/static/images/productive-hours-tracker.png',
+      href: 'https://github.com/yangchristina/productive-hours-tracker',
+    },
   ],
 
   // fr: [
