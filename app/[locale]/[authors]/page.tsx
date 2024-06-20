@@ -25,9 +25,6 @@ export default async function Page({ params: { authors, locale } }: AboutProps) 
   ) as Authors
   const mainContent = coreContent(author)
 
-  console.log('author', author)
-  console.log(allAuthors)
-  console.log("looking for", authors, locale)
   return (
     <>
       <AuthorLayout params={{ locale: locale }} content={mainContent}>
