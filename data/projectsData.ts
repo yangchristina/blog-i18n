@@ -17,7 +17,7 @@ const projectsData: ProjectsData = {
         parsing via OpenAI API, a 2-way Google calendar sync, task organizing views, and productivity
         tracking.`,
       imgSrc: '/static/images/planda-cover-photo.png',
-      href: 'https://www.planda.ca',
+      href: 'https://planda.ca',
     },
     {
       title: 'Celebrate This Mortal',
