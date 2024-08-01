@@ -1,0 +1,45 @@
+---
+title: 'Fixing Typescript being slow'
+date: '2023-11-28'
+authors: ['ychris']
+localeid: '2023-11-28_iframe'
+summary: 'Iframes and scrolling'
+tags: ['typescript', 'slow', 'vscode']
+draft: true
+---
+
+Typescript was very slow for a while for my project [Planda](https://planda.ca), and I finally decided to address it.
+I've documented here what I tried in the process, and what fixed it.
+
+TLDR: The problem was `googleapis`, installing an individual package (`@googleapis/calendar`) instead of the entire `googleapis` fixed the issue.
+
+### 1. TS config [fail]
+- `transform-origin: 0 0;`. I initially thought this might be an issue with the fact that I am using the `scale` property to cause the [iframe's contents to appear zoomed out](https://stackoverflow.com/questions/166160/how-can-i-scale-the-content-of-an-iframe).
+- different `overflow` settings for iframe and iframe parents.
+- Adjusting `display` and `position` (ex. `position: fixed;`). These broke other parts of the content styling, so were not feasible.
+- Using `.scrollIntoView({block: "nearest", inline: "nearest"});`. This worked, but it changed the scrolling behaviour for my calendar in all parts of my application, and so I decided against it, as I still wanted the scroll effect for other uses.
+
+### 2. VS code Extension Bisect [fail]
+- First tried Extension Bisect, found from this [stackoverflow post](https://stackoverflow.com/questions/66013318/how-do-i-speed-up-typescript-intelisense-in-vscode)
+- It didn't work, so I was pretty sure extensions weren't the problem
+
+### 3. VS code setttings [fail]
+- Used settings from this [reddit post](https://www.reddit.com/r/vscode/comments/trjn3z/comment/i2mvlu9/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
+- Still slow
+
+### 4. webtreemap [PASS]
+- Google search for "typescript slow for large files" lead me to this [article](https://effectivetypescript.com/2022/07/30/treemap-for-source-files/)
+- Tried it, and found out `googleapis` took up a HUGE amount of space.
+- Google search for "google apis typescript slow" lead me to this [issue](https://github.com/googleapis/google-api-nodejs-client/issues/2346)
+- Found a suggestion for installing individual packages instead of the entire `googleapis` package
+- Found `@googleapis/calendar` on `npm`, so installed it, uninstalled `googleapis`, did all the replacements, and it worked!
+- `googleapis` was also the reason found in the [article](https://effectivetypescript.com/2022/07/30/treemap-for-source-files/), and in their case switching to the individual packages sped things up by 20%. I didn't measure my speedup, but I could definetly see the speed increase.
+
+### Final thoughts
+
+### Some relevant links
+[https://www.npmjs.com/package/webtreemap-cli](https://www.npmjs.com/package/webtreemap-cli)
+[https://effectivetypescript.com/2022/07/30/treemap-for-source-files/](https://effectivetypescript.com/2022/07/30/treemap-for-source-files/)
+
+### Next steps for Planda
+V3 is coming out late August 2024! Stay tuned for more updates.
