@@ -7,9 +7,9 @@ summary: "Dragging with DragOverlay caused original item to drag as well, making
 tags: ['degugging', 'code']
 ---
 
-In hindsight this was a really dumb mistake, but it's plagued me for a while.
+<b>SOLUTION</b>: Do not use `transform` variable from `useDraggable`.
 
-TLDR: Do not use `transform` variable from `useDraggable`.
+In hindsight this was a really dumb mistake, but it's plagued me for a while.
 
 This is actually written in the docs, but not super clearly.
 
@@ -59,3 +59,6 @@ function Draggable() {
   );
 }
 ```
+
+### Lessons learned
+- If it doesn't work for you, but it works in the demo, then look at the code for the demo, and spot the differences.
